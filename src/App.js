@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from 'react';
+import Navbar from './navbar/nav';
+import Sidebar from './sidebar/sidebar';
+import Dashboard from './pages/dashboard/DashboardCo';
+import MainContents from './pages/mangementp/MainContents';
+import {BrowserRouter,Routes,Route} from 'react-router-dom'
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='flex justify-between'>
+      <BrowserRouter>
+      <Sidebar/>
+
+    <div className='w-full'>
+    <Navbar/>
+
+    <Routes>
+    <Route path='/' element={<Dashboard/>}></Route>
+    </Routes>
+
+    <MainContents/>
+
+
+    </div>
+      </BrowserRouter>
     </div>
   );
 }
